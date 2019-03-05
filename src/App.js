@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 //importing components
 import Todos from './components/Todos';
 import Header from './components/layout/Header';
+import AddTodo from './components/AddTodo';
 import './App.css';
 
 class App extends Component {
@@ -59,10 +60,13 @@ class App extends Component {
     
     return (
       <div className="App">
-        <Header />
-        {/* passing datas through props (todos) and receiving prop called markComplete which is gonna run everything what we write in the {}
-        inside the {} we run a method markComplete */}
-        <Todos todos={ this.state.todos } markComplete={this.markComplete} delTodo={this.delTodo} />
+        <div className='container'>
+          <Header />
+          <AddTodo />
+          {/* passing datas through props (todos) and receiving prop called markComplete which is gonna run everything what we write in the {}
+          inside the {} we run a method markComplete */}
+          <Todos todos={ this.state.todos } markComplete={this.markComplete} delTodo={this.delTodo} />
+        </div>
       </div>
     );
   }
