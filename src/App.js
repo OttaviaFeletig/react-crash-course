@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 //importing components
 import Todos from './components/Todos';
+import Header from './components/layout/Header';
 import './App.css';
 
 class App extends Component {
@@ -26,6 +27,8 @@ class App extends Component {
       }
     ]  
   }
+
+  //Toggle complete
   //using arrow function because otherwise we change scope and we have to bind the calling method.
   //as our state is in App.js, so if we want to access it and change it we have to send back this onChange event back to where the state is
   markComplete = (id) => {
@@ -42,6 +45,13 @@ class App extends Component {
     });
   };
 
+  //deleting the todo that gets clicked on the red x button 
+  delTodo = (id) => {
+    this.setState({
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    });
+  }
+
   render() {
 
     // how to access the state
@@ -49,9 +59,10 @@ class App extends Component {
     
     return (
       <div className="App">
+        <Header />
         {/* passing datas through props (todos) and receiving prop called markComplete which is gonna run everything what we write in the {}
         inside the {} we run a method markComplete */}
-        <Todos todos={ this.state.todos } markComplete={this.markComplete} />
+        <Todos todos={ this.state.todos } markComplete={this.markComplete} delTodo={this.delTodo} />
       </div>
     );
   }

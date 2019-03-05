@@ -25,6 +25,7 @@ export default class TodosItem extends Component {
                      markComplete. i also bind it so that i can pass back my id */}
                     <input type='checkBox' onChange={this.props.markComplete.bind(this, id)} /> {' '} 
                     { title }
+                    <button style={btnStyle} onClick={this.props.delTodo.bind(this, id)}>x</button>
                 </p>
             </div>
         )
@@ -34,5 +35,15 @@ export default class TodosItem extends Component {
 //PropTypes (good practice??)
 TodosItem.propTypes = {
     todo: PropTypes.object.isRequired
+}
+
+const btnStyle = {
+    background: 'red',
+    color: 'white',
+    padding: '5px 9px',
+    borderRadius: '50%',
+    float: 'right',
+    cursor: 'pointer',
+    border: 'none'
 }
 

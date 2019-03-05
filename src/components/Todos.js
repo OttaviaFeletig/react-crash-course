@@ -8,7 +8,7 @@ class Todos extends Component {
   //then i am receiving the prop called markComplete from TodosItem component, and i send it back to app
   render() {
     return this.props.todos.map(todo => (
-        <TodosItem key={ todo.id } todo={ todo } markComplete ={ this.props.markComplete }/>
+        <TodosItem key={ todo.id } todo={ todo } markComplete ={ this.props.markComplete } delTodo={this.props.delTodo}/>
     ));
   }
 }
