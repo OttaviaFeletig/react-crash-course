@@ -34,7 +34,9 @@ export default class TodosItem extends Component {
 
 //PropTypes (good practice??)
 TodosItem.propTypes = {
-    todo: PropTypes.object.isRequired
+    todo: PropTypes.object.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired
 }
 
 const btnStyle = {
